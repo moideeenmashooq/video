@@ -239,18 +239,10 @@ background: url('moideen.jpeg') no-repeat center center;
     background-size: cover;
 } 
 
-/* Hide the video initially */
-#video {
-    display: none;
-    width: 80%;
-    max-width: 350px;
-    margin-top: 25px;
-    border-radius: 25px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-}
 </style>
 </head>
 <body>
+
 
 <!-- Floating hearts script -->
 <script>
@@ -258,4 +250,152 @@ for (let i = 0; i < 20; i++) {
     const h = document.createElement("div");
     h.className = "heart";
     h.style.left = Math.random() * 100 + "vw";
-    h.style.animation
+    h.style.animationDuration = (6 + Math.random() * 6) + "s";
+    document.body.appendChild(h);
+}
+</script>
+
+<!-- Main card -->
+<div class="card" id="card">
+   
+    <h1>‪‪❤︎‬ Hey ‪‪❤︎‬</h1>
+    <p id="question"></p>
+
+    <div class="buttons">
+        <button id="yesBtn">Yes 💘</button>
+        <button id="noBtn">No 🙈</button>
+    </div>
+</div>
+
+<!-- Final card -->
+<video width="640" height="360" controls>
+        <source src="aaa.mp4" type="video/mp4">
+        <source src="aaa.webm" type="video/webm">
+        <source src="aaa.ogg" type="video/ogg">">
+</video>
+    <div class="heart-big">❤︎</div>
+    <h1>ما شاء الله</h1>
+    <p>💕........يا نور عيني </p>
+    
+</div>
+
+
+
+<script>
+
+    const audio = document.getElementById('myAudio');
+
+    // document.getElementById('yesBtn').addEventListener('click', () => {
+    // // Show the final div
+    // // const finalDiv = document.getElementById('final');
+    // // final.style.display = 'block';
+
+    // // Play music now — browser allows it because this is triggered by a user click
+    // audio.play().catch((err) => {
+    //     console.log('Play failed:', err);
+    // });
+
+    //     });
+    
+const questions = [
+    "Do you love me?",
+    "Do you trust me?",
+    "Will you always stay with me?",
+    "Will you be Mine....?"
+];
+
+const aestheticEmojis = [
+    "✧", "｡", "❀", "✦", "☾",
+    "❁", "✿", "✩", "❤︎", "ᵕᴗᵕ",
+    "♡", "❦", "⋆", "☀︎", "☽",
+    "✫", "✪", "❈", "✵", "𝒶"
+];
+
+let index = 0;
+const questionEl = document.getElementById("question");
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const card = document.getElementById("card");
+const final = document.getElementById("final");
+
+questionEl.innerText = questions[index];
+
+noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * 700 - 130;
+    const y = Math.random() * 300 - 50;
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+});
+
+// Effects functions
+function popHearts() {
+    for (let i = 0; i < 3; i++) {
+        const h = document.createElement("div");
+        h.className = "big-heart";
+        h.innerText = "🤍";
+        h.style.left = Math.random() * 100 + "vw";
+        h.style.bottom = "40px";
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 3000);
+    }
+}
+
+function dropPetals() {
+    for (let i = 0; i < 4; i++) {
+        const p = document.createElement("div");
+        p.className = "petal";
+        p.innerText = "🌸";
+        p.style.left = Math.random() * 100 + "vw";
+        p.style.top = "20px";
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 3500);
+    }
+}
+
+function fireworksFinale() {
+    for (let i = 0; i < 6; i++) {
+        const f = document.createElement("div");
+        f.className = "firework";
+        f.innerText = "🤍";
+        f.style.left = Math.random() * 100 + "vw";
+        f.style.top = Math.random() * 50 + "vh";
+        document.body.appendChild(f);
+        setTimeout(() => f.remove(), 1500);
+    }
+}
+
+function dropAesthetic() {
+    for (let i = 0; i < 5; i++) {
+        const p = document.createElement("div");
+        p.className = "petal";
+        p.innerText = aestheticEmojis[Math.floor(Math.random() * aestheticEmojis.length)];
+        p.style.left = Math.random() * 100 + "vw";
+        p.style.top = "-10px";
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 3500);
+    }
+}
+
+// Initial aesthetics
+dropAesthetic();
+
+yesBtn.addEventListener("click", () => {
+    popHearts();
+    dropPetals();
+    dropAesthetic();
+
+    index++;
+
+    if (index < questions.length) {
+        questionEl.innerText = questions[index];
+    } else {
+        card.style.display = "none";
+        final.style.display = "block";
+        fireworksFinale();
+        audio.play().catch((err) => {
+        console.log('Play failed:', err);
+    });
+    }
+});
+</script>
+</body>
+</html>
