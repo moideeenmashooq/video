@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hey ‪‪❤︎‬☾</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+/* Body and general fonts */
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fa8e92, #fecfef);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-image: url("https://img.freepik.com/free-vector/watercolor-sugar-cotton-clouds-background_23-2149219077.jpg?semt=ais_hybrid&w=740&q=80"); /* Replace with your image's URL or file path */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-size: cover;      /* Scales the image to cover the entire container (the body) */
+    background-attachment: fixed; /* Keeps the background fixed when the user scrolls */
+    margin: 0;                   /* Removes default browser margins */
+    height: 100vh;   
+}
+
+/* Floating hearts */
+.heart {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: rgba(255,255,255,0.4);
+    transform: rotate(45deg);
+    animation: float 8s linear infinite;
+}
+.heart::before,
+.heart::after {
+    content: "";
+    width: 18px;
+    height: 18px;
+    background: inherit;
+    border-radius: 50%;
+    position: absolute;
+}
+.heart::before { top: -9px; left: 0; }
+.heart::after { left: -9px; top: 0; }
+
+@keyframes float {
+    from { transform: translateY(100vh) rotate(45deg); opacity: 1; }
+    to { transform: translateY(-10vh) rotate(45deg); opacity: 0; }
+}
+
+/* Card */
+.card {
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(12px);
+    border-radius: 25px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    max-width: 420px;
+    width: 90%;
+    z-index: 2;
+    animation: fadeIn 1.2s ease;
+}
+
+/* Titles */
+h1 {
+    color: #b3003b;
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.4em;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 20px;
+    color: #5a0033;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.buttons {
+    position: relative;
+    height: 120px;
+}
+
+button {
+    padding: 14px 34px;
+    font-size: 18px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    font-weight: 600;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    transition: 0.3s ease, transform 0.2s ease;
+}
+
+#yesBtn {
+    background: #ff3366;
+    color: white;
+    left: 50%;
+    transform: translateX(-115%);
+}
+
+#yesBtn:hover {
+    transform: translateX(-115%) scale(1.05);
+}
+
+#noBtn {
+    background: white;
+    color: #ff3366;
+    left: 50%;
+    transform: translateX(15%);
+}
+
+#noBtn:hover {
+    transform: translateX(15%) scale(1.05);
+}
+
+/* Final heart display */
+.final {
+    display: none;
+}
+
+.heart-big {
+    font-size: 70px;
+    animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Popups and floating emojis */
+.popup {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 15px 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    font-size: 18px;
+    color: #ff3366;
+    animation: fadePop 1.5s ease forwards;
+    z-index: 999;
+}
+
+@keyframes fadePop {
+    0% { opacity: 0; transform: translate(-50%, -20px); }
+    20% { opacity: 1; }
+    100% { opacity: 0; transform: translate(-50%, -60px); }
+}
+
+.emoji {
+    position: fixed;
+    font-size: 30px;
+    animation: floatEmoji 2s ease forwards;
+    z-index: 999;
+}
+
+@keyframes floatEmoji {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-120px); }
+}
+
+/* Aesthetic floating hearts */
+.big-heart {
+    position: fixed;
+    font-size: 90px;
+    color: rgba(255,255,255,0.35);
+    animation: floatHeart 3s ease-out forwards;
+    z-index: 998;
+}
+
+@keyframes floatHeart {
+    from { transform: translateY(0) scale(0.9); opacity: 0.4; }
+    to { transform: translateY(-220px) scale(1.1); opacity: 0; }
+}
+
+/* Rose petals */
+.petal {
+    position: fixed;
+    font-size: 40px;
+    opacity: 0.6;
+    animation: fallPetal 3.5s ease-out forwards;
+    z-index: 997;
+}
+
+@keyframes fallPetal {
+    from { transform: translateY(0) rotate(0deg); }
+    to { transform: translateY(250px) rotate(120deg); opacity: 0; }
+}
+
+/* Fireworks */
+.firework {
+    position: fixed;
+    font-size: 60px;
+    animation: firework 1.5s ease-out forwards;
+    z-index: 999;
+}
+
+@keyframes firework {
+    0% { transform: scale(0.3); opacity: 0; }
+    40% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* Image at the end */
+#finalImage {
+    width: 80%;
+    max-width: 350px;
+    border-radius: 25px;
+    margin-top: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    animation: fadeIn 2s ease;
+}
+.card.final {
+    background: rgba(255, 255, 255, 0.3); /* semi-transparent overlay */
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    backdrop-filter: blur(10px); /* soft blur for better blending */
+    color: #fff;
+    height: 400px;
+    width: 400px;
+background: url('moideen.jpeg') no-repeat center center;
+    background-size: cover;
+} 
+
+</style>
+</head>
+<body>
+
+
+<!-- Floating hearts script -->
+<script>
+for (let i = 0; i < 20; i++) {
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.style.left = Math.random() * 100 + "vw";
+    h.style.animationDuration = (6 + Math.random() * 6) + "s";
+    document.body.appendChild(h);
+}
+</script>
+
+<!-- Main card -->
+<div class="card" id="card">
+   
+    <h1>‪‪❤︎‬ Hey ‪‪❤︎‬</h1>
+    <p id="question"></p>
+
+    <div class="buttons">
+        <button id="yesBtn">Yes 💘</button>
+        <button id="noBtn">No 🙈</button>
+    </div>
+</div>
+
+<!-- Final card -->
+<video width="640" height="360" controls>
+        <source src="aaa.mp4" type="video/mp4">
+        <source src="aaa.webm" type="video/webm">
+        <source src="aaa.ogg" type="video/ogg">">
+</video>
+    <div class="heart-big">❤︎</div>
+    <h1>ما شاء الله</h1>
+    <p>💕........يا نور عيني </p>
+    
+</div>
+
+
+
+<script>
+
+    const audio = document.getElementById('myAudio');
+
+    // document.getElementById('yesBtn').addEventListener('click', () => {
+    // // Show the final div
+    // // const finalDiv = document.getElementById('final');
+    // // final.style.display = 'block';
+
+    // // Play music now — browser allows it because this is triggered by a user click
+    // audio.play().catch((err) => {
+    //     console.log('Play failed:', err);
+    // });
+
+    //     });
+    
+const questions = [
+    "Do you love me?",
+    "Do you trust me?",
+    "Will you always stay with me?",
+    "Will you be Mine....?"
+];
+
+const aestheticEmojis = [
+    "✧", "｡", "❀", "✦", "☾",
+    "❁", "✿", "✩", "❤︎", "ᵕᴗᵕ",
+    "♡", "❦", "⋆", "☀︎", "☽",
+    "✫", "✪", "❈", "✵", "𝒶"
+];
+
+let index = 0;
+const questionEl = document.getElementById("question");
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const card = document.getElementById("card");
+const final = document.getElementById("final");
+
+questionEl.innerText = questions[index];
+
+noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * 700 - 130;
+    const y = Math.random() * 300 - 50;
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+});
+
+// Effects functions
+function popHearts() {
+    for (let i = 0; i < 3; i++) {
+        const h = document.createElement("div");
+        h.className = "big-heart";
+        h.innerText = "🤍";
+        h.style.left = Math.random() * 100 + "vw";
+        h.style.bottom = "40px";
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 3000);
+    }
+}
+
+function dropPetals() {
+    for (let i = 0; i < 4; i++) {
+        const p = document.createElement("div");
+        p.className = "petal";
+        p.innerText = "🌸";
+        p.style.left = Math.random() * 100 + "vw";
+        p.style.top = "20px";
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 3500);
+    }
+}
+
+function fireworksFinale() {
+    for (let i = 0; i < 6; i++) {
+        const f = document.createElement("div");
+        f.className = "firework";
+        f.innerText = "🤍";
+        f.style.left = Math.random() * 100 + "vw";
+        f.style.top = Math.random() * 50 + "vh";
+        document.body.appendChild(f);
+        setTimeout(() => f.remove(), 1500);
+    }
+}
+
+function dropAesthetic() {
+    for (let i = 0; i < 5; i++) {
+        const p = document.createElement("div");
+        p.className = "petal";
+        p.innerText = aestheticEmojis[Math.floor(Math.random() * aestheticEmojis.length)];
+        p.style.left = Math.random() * 100 + "vw";
+        p.style.top = "-10px";
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 3500);
+    }
+}
+
+// Initial aesthetics
+dropAesthetic();
+
+yesBtn.addEventListener("click", () => {
+    popHearts();
+    dropPetals();
+    dropAesthetic();
+
+    index++;
+
+    if (index < questions.length) {
+        questionEl.innerText = questions[index];
+    } else {
+        card.style.display = "none";
+        final.style.display = "block";
+        fireworksFinale();
+        audio.play().catch((err) => {
+        console.log('Play failed:', err);
+    });
+    }
+});
+</script>
+</body>
+</html>
